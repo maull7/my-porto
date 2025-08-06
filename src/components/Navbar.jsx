@@ -11,8 +11,8 @@ const Navbar = ({navOpen}) => {
         activeBox.current.style.left = lastActiveLink.current.offsetLeft + 'px';
         activeBox.current.style.width = lastActiveLink.current.offsetWidth + 'px';
         activeBox.current.style.height = lastActiveLink.current.offsetHeight + 'px';
-        
-        
+
+
     }
 
     const activeCurrentLink = (event) => {
@@ -47,20 +47,15 @@ const Navbar = ({navOpen}) => {
           className: 'nav-link'
         },
         {
-          label: 'Reviews',
-          link: '#reviews',
-          className: 'nav-link'
-        },
-        {
           label: 'Contact',
           link: '#contact',
           className: 'nav-link md:hidden'
         }
       ];
-    return ( 
+    return (
        <nav className={'navbar ' + (navOpen ? 'active' : '')}>
         {navItems.map(({ label, link, className,ref }, index) => (
-                <a 
+                <a
                     href={link}
                     className={className}
                     key={index}

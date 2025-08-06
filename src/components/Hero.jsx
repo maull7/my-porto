@@ -3,6 +3,7 @@ import gsap from "gsap";
 import SplitType from "split-type";
 import { ButtonPrimary, ButtonOutline } from "./Button";
 
+
 const Hero = () => {
   const nameRef = useRef(null);
   const jobRef = useRef(null);
@@ -97,7 +98,14 @@ const Hero = () => {
           </h2>
 
           <div className="flex items-center gap-3">
-            <ButtonPrimary label="Download CV" icon="download" />
+           <ButtonPrimary
+              label="Download CV"
+              icon="download"
+              href={"/cv-rehan-maulana.pdf"}
+              download={true}
+
+            />
+
             <ButtonOutline href="#about" label="Scroll Down" icon="arrow_downward" />
           </div>
         </div>

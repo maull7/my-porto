@@ -6,51 +6,54 @@ const ButtonPrimary = ({
     target = '_self',
     label,
     icon,
-    classes
+    classes,
+    download
 }) => {
     if(href){
     return (
         <a
-        target={target} 
+        target={target}
         href={href}
         className={"btn btn-primary " + classes}
+         download={download ? true : undefined} // ✅ ini penting
         >
         {label}
 
-        {icon ? 
+        {icon ?
         <span className="material-symbols-outlined" aria-hidden="true" >
             {icon}
         </span>
-        : undefined    
+        : undefined
     }
 
         </a>
     )
-   
+
     }else {
       return (
         <button className={"btn btn-primary " + classes}>
         {label}
 
-        {icon ? 
+
+        {icon ?
         <span className="material-symbols-outlined" aria-hidden="true" >
             {icon}
         </span>
-        : undefined    
+        : undefined
     }</button>
       )
 
     }
 }
+ButtonPrimary.propTypes = {
+  label: PropTypes.string.isRequired,
+  target: PropTypes.string,
+  href: PropTypes.string,
+  icon: PropTypes.string,
+  classes: PropTypes.string,
+  download: PropTypes.bool, // ✅ ini penting
+};
 
-ButtonPrimary.PropTypes = {
-    label : PropTypes.string.isRequired,
-    target:  PropTypes.string,
-    href : PropTypes.string,
-    icon : PropTypes.string,
-    classess : PropTypes.string
-
-}
 
 const ButtonOutline = ({
     href,
@@ -62,32 +65,32 @@ const ButtonOutline = ({
     if(href){
     return (
         <a
-        target={target} 
+        target={target}
         href={href}
         className={"btn btn-outline " + classes}
         >
         {label}
 
-        {icon ? 
+        {icon ?
         <span className="material-symbols-outlined" aria-hidden="true" >
             {icon}
         </span>
-        : undefined    
+        : undefined
     }
 
         </a>
     )
-   
+
     }else {
       return (
         <button className={"btn btn-outline " + classes}>
         {label}
 
-        {icon ? 
+        {icon ?
         <span className="material-symbols-outlined" aria-hidden="true" >
             {icon}
         </span>
-        : undefined    
+        : undefined
     }</button>
       )
 
