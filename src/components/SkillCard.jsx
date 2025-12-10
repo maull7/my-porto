@@ -1,37 +1,26 @@
 import PropTypes from "prop-types";
-const SkillCard = ({
-    imgSrc,
-    label,
-    desc,
-    classes
-}) => {
-    return (
-       <div className={'flex items-center gap-3 ring-2 ring-inset ring-zinc-50/10 rounded-2xl p-3 hover:bg-zinc-800 transition-colors group ' + classes}>
-        <figure className="bg-zinc-700/50 rounded-lg overflow-hidden w-12 h-12 p-2 group-hover:bg-zinc-900 transition-colors">
-            <img 
-            src={imgSrc} 
-            alt={label}
-            width={32}
-            height={32}
-           />
-        </figure>
 
-        <div className="">
-            <h3>{label}</h3>
-
-            <p className="text-zinc-400 text-sm">
-                {desc}
-            </p>
+const SkillCard = ({ imgSrc, label, desc }) => {
+  return (
+    <div className="card-blur p-5 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-0 hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/10 via-transparent to-white/5" />
+      <div className="flex items-center gap-4">
+        <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 shadow-inner grid place-items-center">
+          <img src={imgSrc} alt={label} className="w-9 h-9 object-contain" loading="lazy" />
         </div>
-       </div>
-    )
-}
+        <div>
+          <p className="font-semibold text-lg">{label}</p>
+          <p className="text-sm text-[var(--muted)]">{desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-SkillCard.PropTypes = {
-    imgSrc: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    desc: PropTypes.string.isRequired,
-    classes: PropTypes.string
-}
+SkillCard.propTypes = {
+  imgSrc: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+};
 
 export default SkillCard;

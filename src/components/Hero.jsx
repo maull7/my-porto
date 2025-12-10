@@ -1,125 +1,63 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import SplitType from "split-type";
 import { ButtonPrimary, ButtonOutline } from "./Button";
 
-
 const Hero = () => {
-  const nameRef = useRef(null);
-  const jobRef = useRef(null);
-  const titleRef = useRef(null);
-
-  useEffect(() => {
-    if (!nameRef.current || !jobRef.current || !titleRef.current) return;
-
-    // Pisahkan teks menjadi huruf satu per satu
-    const nameText = new SplitType(nameRef.current, { types: "chars" });
-    const jobText = new SplitType(jobRef.current, { types: "chars" });
-    const titleText = new SplitType(titleRef.current, { types: "chars" });
-
-    // Set semua karakter tidak terlihat dulu
-    gsap.set([nameText.chars, jobText.chars, titleText.chars], { opacity: 0 });
-
-    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-
-    // Animasi mengetik Nama "Rehan Maulana"
-    tl.to(nameText.chars, {
-      opacity: 1,
-      duration: 0.1,
-      stagger: 0.08,
-      ease: "power2.out",
-    });
-
-    // Animasi mengetik "Junior Web"
-    tl.to(
-      jobText.chars,
-      {
-        opacity: 1,
-        duration: 0.1,
-        stagger: 0.08,
-        ease: "power2.out",
-      },
-      "+=0.3"
-    );
-
-    // Animasi mengetik "Developer"
-    tl.to(
-      titleText.chars,
-      {
-        opacity: 1,
-        duration: 0.1,
-        stagger: 0.08,
-        ease: "power2.out",
-      },
-      "+=0.3"
-    );
-
-    // Efek menghilang sebelum ulang
-    tl.to(
-      [nameText.chars, jobText.chars, titleText.chars],
-      {
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.05,
-        ease: "power2.out",
-      },
-      "+=2"
-    );
-  }, []);
-
   return (
-    <section id="home" className="pt-28 lg:pt-36">
-      <div className="container items-center lg:grid lg:grid-cols-2 lg:gap-10">
-        <div>
-          <div className="flex items-center gap-3">
-            <figure className="img-box w-9 h-9 rounded-lg">
-              <img
-                src="/images/images.png"
-                alt="Logo Rm"
-                width={40}
-                height={40}
-                className="img-cover"
-              />
-            </figure>
-
-            <div className="flex items-center gap-1.5 text-zinc-400 text-sm tracking-wide">
-              <span className="relative w-2 h-2 rounded-full bg-emerald-500">
-                <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping"></span>
-              </span>
-              Available Work
-            </div>
+    <section id="home" className="relative">
+      <div className="container grid lg:grid-cols-[1.1fr_0.9fr] items-center gap-10">
+        <div className="space-y-6">
+          <div className="inline-flex items-center gap-3 glass px-4 py-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <p className="text-sm font-semibold tracking-[0.22em] uppercase text-[var(--muted)]">Available for new missions</p>
           </div>
 
-          {/* Nama dan Job Title dengan efek mengetik */}
-          <h2 className="headline-1 max-w-[20ch] mt-5 mb-8 lg:mb-10">
-            <span ref={nameRef} className="block">Rehan Maulana</span>
-            <span ref={jobRef} className="block text-sky-400">Junior Web</span>
-            <span ref={titleRef} className="block text-sky-400">Developer</span>
-          </h2>
+          <div className="space-y-4">
+            <p className="badge inline-flex items-center gap-2">Building premium digital stories</p>
+            <h1 className="text-4xl sm:text-5xl font-semibold leading-[1.05]">
+              Futuristic front-end experiences that feel <span className="text-sky-300">alive</span> and intentional.
+            </h1>
+            <p className="subtitle max-w-xl">
+              Saya merancang antarmuka modern dengan detail micro-interaction, strategi aksesibilitas, dan performa prima agar brand Anda tampil premium.
+            </p>
+          </div>
 
-          <div className="flex items-center gap-3">
-           <ButtonPrimary
-              label="Download CV"
-              icon="download"
-              href={"/cv-rehan-maulana.pdf"}
-              download={true}
+          <div className="flex flex-wrap items-center gap-4">
+            <ButtonPrimary label="Download CV" href="/cv-rehan-maulana.pdf" icon="download" download />
+            <ButtonOutline label="Lihat Portfolio" href="#work" icon="arrow_outward" />
+          </div>
 
-            />
-
-            <ButtonOutline href="#about" label="Scroll Down" icon="arrow_downward" />
+          <div className="grid sm:grid-cols-3 gap-4 pt-6">
+            {["Web Experiences", "Design Systems", "Creative Coding"].map((item) => (
+              <div key={item} className="card-blur p-4">
+                <p className="text-sm text-[var(--muted)]">Specialized in</p>
+                <p className="font-semibold mt-2">{item}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="hidden lg:block">
-          <figure className="w-full max-w-[480px] ml-auto bg-gradient-to-t from-sky-400 via-25% via-sky-400/40 to-65% rounded-[60px] overflow-hidden">
-            <img
-              src="/images/images-logo.png"
-              width={656}
-              height={800}
-              alt="Banner"
-              className="w-full"
-            />
-          </figure>
+        <div className="relative">
+          <div className="absolute inset-0 blur-3xl opacity-60 bg-gradient-to-br from-sky-400 via-cyan-300 to-fuchsia-500" />
+          <div className="relative glass p-8 rounded-[28px] overflow-hidden">
+            <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.2),transparent_30%),radial-gradient(circle_at_80%_0%,rgba(168,85,247,0.25),transparent_25%)]" />
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-xl">
+              <img
+                src="/images/images-logo.png"
+                alt="Profile"
+                className="w-full h-full object-cover scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="card-blur p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Role</p>
+                <p className="font-semibold text-lg">Frontend Engineer</p>
+              </div>
+              <div className="card-blur p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Location</p>
+                <p className="font-semibold text-lg">Indonesia</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

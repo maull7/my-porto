@@ -1,89 +1,35 @@
 import SkillCard from "./SkillCard";
 
 const skillItem = [
-    {
-      imgSrc: '/images/html.svg',
-      label: 'HTML',
-      desc: 'Work Html'
-    },
-    {
-      imgSrc: '/images/css3.svg',
-      label: 'CSS',
-      desc: 'User Interface'
-    },
-    {
-      imgSrc: '/images/javascript.svg',
-      label: 'JavaScript',
-      desc: 'Interaction'
-    },
-    {
-      imgSrc: '/images/nodejs.svg',
-      label: 'NodeJS',
-      desc: 'Web Server'
-    },
-    {
-      imgSrc: '/images/expressjs.svg',
-      label: 'ExpressJS',
-      desc: 'Node Framework'
-    },
-    {
-      imgSrc: '/images/mysqll.png',
-      label: 'MySql',
-      desc: 'Database SQL'
-    },
-    {
-      imgSrc: '/images/react.svg',
-      label: 'React',
-      desc: 'Framework'
-    },
-    {
-      imgSrc: '/images/image.png',
-      label: 'Laravel',
-      desc: 'Framework'
-    },
-    {
-      imgSrc: '/images/tailwindcss.svg',
-      label: 'TailwindCSS',
-      desc: 'User Interface'
-    },
-    {
-      imgSrc: '/images/boostrap.svg',
-      label: 'Boostrap CSS',
-      desc: 'User Interface'
-    },
-    {
-      imgSrc: '/images/php.svg',
-      label: 'PHP',
-      desc: 'Server side'
-    },
-  ];
+  { imgSrc: "/images/react.svg", label: "React", desc: "UI interaktif dengan arsitektur modular" },
+  { imgSrc: "/images/tailwindcss.svg", label: "Tailwind", desc: "Desain konsisten berbasis token" },
+  { imgSrc: "/images/javascript.svg", label: "JavaScript", desc: "Micro-interaction & logic dynamic" },
+  { imgSrc: "/images/nodejs.svg", label: "Node.js", desc: "API ringan dan real-time" },
+  { imgSrc: "/images/mysqll.png", label: "MySQL", desc: "Data reliable dengan indexing" },
+  { imgSrc: "/images/php.svg", label: "PHP", desc: "Integrasi back-office cepat" },
+  { imgSrc: "/images/css3.svg", label: "CSS", desc: "Layout futuristik & animasi halus" },
+  { imgSrc: "/images/expressjs.svg", label: "Express", desc: "Service layer minimalis" },
+  { imgSrc: "/images/html.svg", label: "HTML", desc: "Fondasi semantic & aksesibel" },
+];
 
 const Skill = () => {
-    return (
-        <section className="section">
-            <div className="container">
-                <h2 className="headline-2 ">
-                    Essential Tools I use
-                </h2>
-                <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch]">
-                Discover the powerful tools and technologies I use to create exceptional, high-performing websites & applications.
-                </p>
+  return (
+    <section id="skills">
+      <div className="container space-y-6">
+        <div className="flex flex-col gap-2 max-w-3xl">
+          <p className="tag">Skills</p>
+          <h2 className="title">Tech stack yang saya kustomisasi</h2>
+          <p className="subtitle">Kombinasi teknologi favorit untuk membuat pengalaman web yang modern, cepat, dan maintainable.</p>
+        </div>
 
-                <div className="grid gap-3 grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))]">
-                    {
-                        skillItem.map(({imgSrc,label,desc},key) => (
-                            <SkillCard
-                            key={key} 
-                             imgSrc={imgSrc}
-                             label={label}
-                             desc={desc}
-                            />
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-    )
-}
+        <div className="grid-cards">
+          {skillItem.map((skill) => (
+            <SkillCard key={skill.label} {...skill} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default Skill
+export default Skill;
