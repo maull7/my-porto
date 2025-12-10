@@ -9,11 +9,13 @@ const Contact = () => {
   return (
     <section id="contact">
       <div className="container grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
-        <div className="space-y-4">
+        <div className="space-y-4 text-center lg:text-left">
           <p className="tag">Contact</p>
           <h2 className="title">Mari diskusi proyek berikutnya</h2>
-          <p className="subtitle">Lebih suka obrolan cepat? Kirim pesan lewat form atau hubungi via sosial di bawah.</p>
-          <div className="flex gap-3 pt-2 flex-wrap">
+          <p className="subtitle max-w-xl mx-auto lg:mx-0">
+            Lebih suka obrolan cepat? Kirim pesan lewat form atau hubungi via sosial di bawah.
+          </p>
+          <div className="flex gap-3 pt-2 flex-wrap justify-center lg:justify-start">
             {socialLinks.map((link) => (
               <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="icon-btn">
                 {link.label}
