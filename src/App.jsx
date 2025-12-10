@@ -13,6 +13,7 @@ import Header from './components/Header';
 import Hero from "./components/Hero";
 import Skill from './components/Skill';
 import Work from "./components/Work";
+import Experience from "./components/Experience";
 
 const App = () => {
   const lenisRef = useRef(null);
@@ -110,6 +111,9 @@ const App = () => {
         </section>
         <section className="reveal-up">
           <Skill />
+        </section>
+        <section className="reveal-up">
+          <Experience />
         </section>
         <section className="reveal-up">
           <Work />

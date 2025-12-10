@@ -36,9 +36,14 @@ const Navbar = ({navOpen}) => {
           className: 'nav-link active',
           ref: lastActiveLink
         },
-        {
+        { 
           label: 'About',
           link: '#about',
+          className: 'nav-link'
+        },
+        {
+          label: 'Experience',
+          link: '#experience',
           className: 'nav-link'
         },
         {
