@@ -1,112 +1,37 @@
-import { ButtonPrimary } from "./Button";
-
-const sitemap = [
-    {
-      label: 'Home',
-      href: '#home'
-    },
-    {
-      label: 'About',
-      href: '#about'
-    },
-    {
-      label: 'Work',
-      href: '#work'
-    },
-    {
-      label: 'Reviews',
-      href: '#reviews'
-    },
-    {
-      label: 'Contact me',
-      href: '#contact'
-    }
-  ];
-  
-  const socials = [
-    {
-      label: 'GitHub',
-      href: 'https://github.com/maull7'
-    },
-    {
-      label: 'Instagram',
-      href: 'https://www.instagram.com/hxans_1'
-    },
-    
-  ];
+const links = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#work" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Footer = () => {
-    return (
-       <footer className="section">
-        <div className="container">
-
-            <div className="lg:grid lg:grid-cols-2">
-
-                <div className="mb-10">
-                    <h2 className="headline-1 mb-8 lg:max-w-[12ch]">Let&apos;s work together today!</h2>
-
-                    <ButtonPrimary 
-                    href="mailto:rmgaming601@gmail.com"
-                    label="Start Project"
-                    icon="chevron_right"
-                    />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 lg:pl-20">
-                    <div>
-                        <p className="mb-2 text-xl font-semibold text-sky-400">sitemap</p>
-                        <ul>
-                            {sitemap.map(({label,href}, key) => (
-                                <li key={key}>
-                                    <a 
-                                    href={href}
-                                    className="block text-sm text-zinc-400 py-1 transition-colors hover:text-zinc-200"
-                                    >{label}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div>
-                        <p className="mb-2 text-xl font-semibold text-sky-400">Social</p>
-                        <ul>
-                            {socials.map(({label,href}, key) => (
-                                <li key={key}>
-                                    <a 
-                                    href={href}
-                                    className="block text-sm text-zinc-400 py-1 transition-colors hover:text-zinc-200"
-                                    target="_blank"
-                                    >{label}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-
-            <div className="flex items-center justify-between pt-10 mb-8">
-                <a 
-                href=""
-                className=""
-                >
-                    <img 
-                    src="/images/logo.svg" 
-                    alt="Logo Footer" 
-                    width={40} 
-                    height={40} />
-                </a>
-
-                <p className="text-zinc-500 text-sm">
-                    &copy; 2025 <span 
-                    className="text-zinc-200">RehanMaulana_</span>
-                </p>
-            </div>
+  return (
+    <footer className="py-12">
+      <div className="container glass p-6 rounded-3xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div className="flex items-center gap-3">
+          <div className="h-12 w-12 rounded-2xl bg-white/10 border border-white/20 grid place-items-center">
+            <img src="/images/logo.svg" alt="Logo" width={34} height={34} />
+          </div>
+          <div>
+            <p className="font-semibold">Rehan Maulana</p>
+            <p className="text-sm text-[var(--muted)]">Crafting premium digital identity</p>
+          </div>
         </div>
-       </footer>
-    )
-}
+
+        <div className="flex flex-wrap gap-3">
+          {links.map((link) => (
+            <a key={link.label} href={link.href} className="text-sm font-semibold text-[var(--muted)] hover:text-[var(--text)]">
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        <p className="text-xs text-[var(--muted)]">© 2025 Crafted with passion.</p>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
